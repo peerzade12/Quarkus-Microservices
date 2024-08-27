@@ -1,0 +1,180 @@
+{
+	"info": {
+		"_postman_id": "19ba9ab8-9965-4ac1-b878-800948f1c3f2",
+		"name": "Quarkus-Microservice-Asfiya",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31708867"
+	},
+	"item": [
+		{
+			"name": "service-one",
+			"item": [
+				{
+					"name": "getDelayInResponse",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url_service_one}}/books",
+							"host": [
+								"{{base_url_service_one}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSuccessInResponse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"bookName\": \"Quarkus for Beginner\",\r\n    \"description\": \"Learn subatomic supersonic Quarkus.\",\r\n    \"author\": \"Quarkus\",\r\n    \"price\": 600\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_service_one}}/books/book",
+							"host": [
+								"{{base_url_service_one}}"
+							],
+							"path": [
+								"books",
+								"book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "throwAnException",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url_service_one}}/books/error/2",
+							"host": [
+								"{{base_url_service_one}}"
+							],
+							"path": [
+								"books",
+								"error",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "service-two",
+			"item": [
+				{
+					"name": "callDelayMethod",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url_service_two}}/books",
+							"host": [
+								"{{base_url_service_two}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "callGetSuccessInResponse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 12,\r\n    \"bookName\": \"Quarkus for Beginner\",\r\n    \"description\": \"Learn subatomic supersonic Quarkus.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_service_two}}/books/book",
+							"host": [
+								"{{base_url_service_two}}"
+							],
+							"path": [
+								"books",
+								"book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "callThrowAnException",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url_service_two}}/books/error/2",
+							"host": [
+								"{{base_url_service_two}}"
+							],
+							"path": [
+								"books",
+								"error",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url_service_one",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "base_url_service_two",
+			"value": "http://localhost:9000",
+			"type": "string"
+		}
+	]
+}
