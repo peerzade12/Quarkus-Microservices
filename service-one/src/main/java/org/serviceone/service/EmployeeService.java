@@ -24,7 +24,7 @@ public class EmployeeService {
     }
 
     public Uni<Employee> updateEmployee(String id, Employee employee) {
-        return employeeRepository.find("id", new ObjectId(id)).firstResult().onItem().ifNotNull().transformToUni(existingPerson -> {
+        return employeeRepository.find("_id", new ObjectId(id)).firstResult().onItem().ifNotNull().transformToUni(existingPerson -> {
             existingPerson.setName(employee.getName());
             existingPerson.setEmail(employee.getEmail());
             existingPerson.setSalary(employee.getSalary());
