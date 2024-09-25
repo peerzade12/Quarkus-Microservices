@@ -10,7 +10,7 @@ import org.eclipse.microprofile.faulttolerance.Fallback;
 import org.eclipse.microprofile.faulttolerance.Retry;
 import org.eclipse.microprofile.faulttolerance.Timeout;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
-import org.servicetwo.entity.BookEntity;
+import org.servicetwo.entity.Book;
 import org.servicetwo.exception.CustomArithmeticException;
 import org.servicetwo.service.ServiceOneProxy;
 
@@ -43,7 +43,7 @@ public class ServiceOneResource {
     @Produces(MediaType.TEXT_PLAIN)
     @Fallback(fallbackMethod = "handleTimeOutFallback")
     @CircuitBreaker(requestVolumeThreshold = 4, failureRatio = 0.6, delay = 20, delayUnit = ChronoUnit.SECONDS)
-    public Uni<Response> acceptABook(BookEntity bookEntity) {
+    public Uni<Response> acceptABook(Book bookEntity) {
         return serviceOneProxy.acceptABook(bookEntity);
     }
 
@@ -64,8 +64,11 @@ public class ServiceOneResource {
                 );
     }
 
-    public Uni<Response> handleTimeOutFallback(BookEntity bookEntity) {
-        return Uni.createFrom().item(Response.status(Response.Status.REQUEST_TIMEOUT).entity("Timeout : It took too long.").build());
+    public Uni<Response> handleTimeOutFallback(Book bookEntity) {
+        return Uni.createFrom()
+                .item(Response.status(Response.Status.REQUEST_TIMEOUT)
+                        .entity("Timeout : It took too long.")
+                        .build());
     }
 
 }

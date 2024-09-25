@@ -1,6 +1,6 @@
 package org.servicetwo.entity;
 
-public class BookEntity {
+public class Book {
     int id;
     String bookName;
     String description;
@@ -29,10 +29,10 @@ public class BookEntity {
         this.description = description;
     }
 
-    public BookEntity() {
+    public Book() {
     }
 
-    public BookEntity(int id, String bookName, String description) {
+    public Book(int id, String bookName, String description) {
         this.id = id;
         this.bookName = bookName;
         this.description = description;
