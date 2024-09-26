@@ -6,6 +6,7 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.core.Response;
 import org.bson.types.ObjectId;
 import org.serviceone.entity.Department;
+import org.serviceone.exception.NoSuchIdFoundException;
 import org.serviceone.repository.DepartmentRepository;
 
 import java.util.List;
@@ -25,6 +26,11 @@ public class DepartmentService {
     }
 
     public Uni<Boolean> deleteDepartment(String id) {
-        return departmentRepository.deleteById(new ObjectId(id));
+        return departmentRepository.find("_id", new ObjectId(id))
+                .firstResult()
+                .onItem().ifNotNull().transformToUni(existingDept -> departmentRepository.deleteById(existingDept.getDepartmentId())
+                        .onItem().transform(deleted -> deleted))
+                .onItem().ifNull().failWith(new NoSuchIdFoundException(Response.Status.NOT_FOUND.getStatusCode(), "Department with id " + id + " not found"));
+
     }
 }

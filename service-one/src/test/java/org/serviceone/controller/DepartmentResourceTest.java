@@ -14,8 +14,6 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
-import static org.hamcrest.Matchers.hasItems;
-
 @QuarkusTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class DepartmentResourceTest {
