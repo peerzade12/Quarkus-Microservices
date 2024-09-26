@@ -1,0 +1,432 @@
+{
+	"info": {
+		"_postman_id": "19ba9ab8-9965-4ac1-b878-800948f1c3f2",
+		"name": "Quarkus-Microservice-Asfiya",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31708867"
+	},
+	"item": [
+		{
+			"name": "service-one",
+			"item": [
+				{
+					"name": "Employee",
+					"item": [
+						{
+							"name": "GET",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url_service_one}}/employee",
+									"host": [
+										"{{base_url_service_one}}"
+									],
+									"path": [
+										"employee"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"alexand\",\r\n    \"email\": \"alex@email.com\",\r\n    \"salary\": 10000,\r\n    \"departmentId\": \"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url_service_one}}/employee",
+									"host": [
+										"{{base_url_service_one}}"
+									],
+									"path": [
+										"employee"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Bob\",\r\n    \"email\": \"bob@email.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url_service_one}}/employee/66f30b4d87fa42353a6c68af",
+									"host": [
+										"{{base_url_service_one}}"
+									],
+									"path": [
+										"employee",
+										"66f30b4d87fa42353a6c68af"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url_service_one}}/employee/66f3104587fa42353a6c68b4",
+									"host": [
+										"{{base_url_service_one}}"
+									],
+									"path": [
+										"employee",
+										"66f3104587fa42353a6c68b4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Department",
+					"item": [
+						{
+							"name": "POST",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"departmentName\": \"Botanical\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url_service_one}}/department",
+									"host": [
+										"{{base_url_service_one}}"
+									],
+									"path": [
+										"department"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url_service_one}}/department",
+									"host": [
+										"{{base_url_service_one}}"
+									],
+									"path": [
+										"department"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url_service_one}}/department/66f2f7223a64e0508c0d4d00",
+									"host": [
+										"{{base_url_service_one}}"
+									],
+									"path": [
+										"department",
+										"66f2f7223a64e0508c0d4d00"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "getDelayInResponse",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url_service_one}}/books",
+							"host": [
+								"{{base_url_service_one}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSuccessInResponse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"bookName\": \"Quarkus for Beginner\",\r\n    \"description\": \"Learn subatomic supersonic Quarkus.\",\r\n    \"author\": \"Quarkus\",\r\n    \"price\": 600\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_service_one}}/books/book",
+							"host": [
+								"{{base_url_service_one}}"
+							],
+							"path": [
+								"books",
+								"book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "throwAnException",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url_service_one}}/books/error/2",
+							"host": [
+								"{{base_url_service_one}}"
+							],
+							"path": [
+								"books",
+								"error",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "service-two",
+			"item": [
+				{
+					"name": "Employee - service1",
+					"item": [
+						{
+							"name": "GET",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url_service_two}}/employ",
+									"host": [
+										"{{base_url_service_two}}"
+									],
+									"path": [
+										"employ"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"alexand\",\r\n    \"email\": \"alex@email.com\",\r\n    \"salary\": 10000,\r\n    \"departmentId\": \"66f3966ba4bd6e4f3ebdacd1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url_service_two}}/employ",
+									"host": [
+										"{{base_url_service_two}}"
+									],
+									"path": [
+										"employ"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Bob\",\r\n    \"email\": \"bob@email.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url_service_two}}/employ/66f30b4d87fa42353a6c68af",
+									"host": [
+										"{{base_url_service_two}}"
+									],
+									"path": [
+										"employ",
+										"66f30b4d87fa42353a6c68af"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url_service_two}}/employ/66f3104587fa42353a6c",
+									"host": [
+										"{{base_url_service_two}}"
+									],
+									"path": [
+										"employ",
+										"66f3104587fa42353a6c"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "callDelayMethod",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url_service_two}}/books",
+							"host": [
+								"{{base_url_service_two}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "callGetSuccessInResponse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 12,\r\n    \"bookName\": \"Quarkus for Beginner\",\r\n    \"description\": \"Learn subatomic supersonic Quarkus.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_service_two}}/books/book",
+							"host": [
+								"{{base_url_service_two}}"
+							],
+							"path": [
+								"books",
+								"book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "callThrowAnException",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url_service_two}}/books/error/2",
+							"host": [
+								"{{base_url_service_two}}"
+							],
+							"path": [
+								"books",
+								"error",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url_service_one",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "base_url_service_two",
+			"value": "http://localhost:9000",
+			"type": "string"
+		}
+	]
+}

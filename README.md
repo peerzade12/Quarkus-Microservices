@@ -1,4 +1,10 @@
 # Quarkus-Microservices
+
+Pre-requisite:
+1. install MongoDB
+2. Any IDE
+3. Install JDK
+   
 Implementation of two microservices using Quarkus Framework.
 
 1. Microservice service-one: Implements three endpoints and interceptor adding a custom header.
