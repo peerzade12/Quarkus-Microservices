@@ -7,6 +7,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.jboss.logging.Logger;
 import org.serviceone.entity.Employee;
+import org.serviceone.exception.NoSuchIdFoundException;
 import org.serviceone.service.EmployeeService;
 
 @Path("/employee")
@@ -19,7 +20,10 @@ public class EmployeeResource {
     public static final Logger LOG = Logger.getLogger(BookResource.class);
 
     @POST
-    public Uni<Response> createNewEmployee(Employee employee){
+    public Uni<Response> createNewEmployee(Employee employee) throws NoSuchIdFoundException{
+        if (employee.getDepartmentId() == null || employee.getDepartmentId().length() != 24) {
+            throw new NoSuchIdFoundException(404,"Not found department id "+employee.getDepartmentId()+" in record (Department ID must be a 24-character hex string)");
+        }
         LOG.info("POST http://localhost:8080/employee : processing to add new employee.");
         return employeeService.addNewEmployee(employee)
                 .onItem().transform(employee1 -> Response.status(Response.Status.CREATED).entity(employee1).build())
