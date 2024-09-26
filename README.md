@@ -1,4 +1,4 @@
-# Quarkus-Microservices
+# Quarkus-Microservices with MongoDB
 
 Pre-requisite:
 1. install MongoDB
