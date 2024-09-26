@@ -19,8 +19,28 @@ import static org.hamcrest.CoreMatchers.hasItem;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class EmployeeResourceTest {
     public static String id;
+    public static String departmentId;
 
     @Order(1)
+    @Test
+    void createNewDepartment() {
+        JsonObject jsonObject = Json.createObjectBuilder()
+                .add("departmentId" , String.valueOf(new ObjectId()))
+                .add("departmentName", "Web")
+                .build();
+
+        departmentId = RestAssured.given()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(jsonObject.toString())
+                .when()
+                .post("/department")
+                .then()
+                .statusCode(Response.Status.CREATED.getStatusCode())
+                .extract().path("departmentId");
+
+    }
+
+    @Order(2)
     @Test
     void createNewEmployee() {
         JsonObject jsonObject = Json.createObjectBuilder()
@@ -28,6 +48,7 @@ public class EmployeeResourceTest {
                 .add("name", "Alice")
                 .add("email", "alice@test.com")
                 .add("salary", 123456.00)
+                .add("departmentId", departmentId)
                 .build();
 
         id = RestAssured.given()
@@ -41,7 +62,7 @@ public class EmployeeResourceTest {
 
     }
 
-    @Order(2)
+    @Order(3)
     @Test
     void getAllEmployees() {
         RestAssured.given()
@@ -52,7 +73,7 @@ public class EmployeeResourceTest {
                 .statusCode(Response.Status.OK.getStatusCode());
     }
 
-    @Order(3)
+    @Order(4)
     @Test
     void updateEmployee() {
         JsonObject jsonObject = Json.createObjectBuilder()
@@ -68,7 +89,7 @@ public class EmployeeResourceTest {
                 .statusCode(Response.Status.OK.getStatusCode());
     }
 
-    @Order(4)
+    @Order(5)
     @Test
     void testGetAllEmployees() {
         RestAssured.given()
@@ -79,7 +100,7 @@ public class EmployeeResourceTest {
                 .statusCode(Response.Status.OK.getStatusCode());
     }
 
-    @Order(5)
+    @Order(6)
     @Test
     void deleteEmployee() {
         RestAssured.given()

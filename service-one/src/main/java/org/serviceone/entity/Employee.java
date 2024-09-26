@@ -55,4 +55,15 @@ public class Employee {
     public void setSalary(double salary) {
         this.salary = salary;
     }
+
+    public Employee() {
+    }
+
+    public Employee(ObjectId id, String name, String email, double salary, String departmentId) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.salary = salary;
+        this.departmentId = departmentId;
+    }
 }

@@ -31,7 +31,7 @@ public class EmployeeResource {
         LOG.info("GET http://localhost:8080/employee : Listing all employees.");
         return employeeService.getAllEmployees()
                 .onItem().transform(response -> Response.status(Response.Status.OK).entity(response).build())
-                .onFailure().recoverWithItem(failure-> Response.status(Response.Status.NO_CONTENT).build());
+                .onFailure().recoverWithItem(failure-> Response.status(Response.Status.NO_CONTENT).entity("The record is empty. \nAdd employees.").build());
     }
 
     @PUT
