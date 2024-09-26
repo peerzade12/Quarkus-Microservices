@@ -10,7 +10,6 @@ import org.eclipse.microprofile.faulttolerance.Fallback;
 import org.eclipse.microprofile.faulttolerance.Retry;
 import org.eclipse.microprofile.faulttolerance.Timeout;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
-import org.servicetwo.entity.Book;
 import org.servicetwo.entity.Employee;
 import org.servicetwo.service.EmployeeServiceProxy;
 
